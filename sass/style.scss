@@ -46,27 +46,27 @@ header {
       background-size: contain !important;
       cursor: pointer;
       &.fb {
-        background: url("/images/social_fb.png") no-repeat center center;
+        background: url("../images/social_fb.png") no-repeat center center;
         @include retina {
-          background: url("/images/social_fb@2x.png") no-repeat center center;
+          background: url("../images/social_fb@2x.png") no-repeat center center;
         }
       }
       &.ig {
-        background: url("/images/social_ig.png") no-repeat center center;
+        background: url("../images/social_ig.png") no-repeat center center;
         @include retina {
-          background: url("/images/social_ig@2x.png") no-repeat center center;
+          background: url("../images/social_ig@2x.png") no-repeat center center;
         }
       }
       &.line {
-        background: url("/images/social_message.png") no-repeat center center;
+        background: url("../images/social_message.png") no-repeat center center;
         @include retina {
-          background: url("/images/social_message@2x.png") no-repeat center center;
+          background: url("../images/social_message@2x.png") no-repeat center center;
         }
       }
       &.mail {
-        background: url("/images/social_mail.png") no-repeat center center;
+        background: url("../images/social_mail.png") no-repeat center center;
         @include retina {
-          background: url("/images/social_mail@2x.png") no-repeat center center;
+          background: url("../images/social_mail@2x.png") no-repeat center center;
         }
       }
     }
@@ -79,10 +79,10 @@ header {
   text-align: center;
   font-size: 2em;
   letter-spacing: .625em;
-  background: url("/images/banner.jpg") no-repeat center center;
+  background: url("../images/banner.jpg") no-repeat center center;
   background-size: cover !important;
   @include retina {
-    background: url("/images/banner@2x.jpg") no-repeat center center;
+    background: url("../images/banner@2x.jpg") no-repeat center center;
   }
 }
 nav {
@@ -125,10 +125,10 @@ nav {
           bottom: 0;
           width: 15px;
           height: 15px;
-          background: url("/images/Triangle.png") no-repeat;
+          background: url("../images/Triangle.png") no-repeat;
           background-size: contain !important;
           @include retina {
-            background: url("/images/Triangle@2x.png") no-repeat center center;
+            background: url("../images/Triangle@2x.png") no-repeat center center;
           }
         }
       }
@@ -185,16 +185,16 @@ article.block {
 }
 .more {
   padding-top: 36px;
-  background: url("/images/More.png") no-repeat top right;
+  background: url("../images/More.png") no-repeat top right;
   background-size: 106px 36px !important;
   @include retina {
-    background: url("/images/More@2x.png") no-repeat top right;
+    background: url("../images/More@2x.png") no-repeat top right;
   }
   cursor: pointer;
   &.js-active {
-    background: url("/images/Moreclose.png") no-repeat top right;
+    background: url("../images/Moreclose.png") no-repeat top right;
     @include retina {
-      background: url("/images/Moreclose@2x.png") no-repeat top right;
+      background: url("../images/Moreclose@2x.png") no-repeat top right;
     }
     .content {
       display: block;
@@ -226,10 +226,10 @@ article.block {
     display: inline-block;
     width: 24px;
     height: 24px;
-    background: url("/images/help.png") no-repeat top right;
+    background: url("../images/help.png") no-repeat top right;
     background-size: 24px 24px !important;
     @include retina {
-      background: url("/images/help@2x.png") no-repeat top right;
+      background: url("../images/help@2x.png") no-repeat top right;
     }
   }
   &.js-active {
@@ -260,36 +260,36 @@ article.block {
 .page1 {
   .one {
     &.right {
-      background: url("/images/Page1.png") no-repeat center;
+      background: url("../images/Page1.png") no-repeat center;
       background-size: 139px 123px !important;
       @include retina {
-        background: url("/images/Page1@2x.png") no-repeat center;
+        background: url("../images/Page1@2x.png") no-repeat center;
       }
     }
     &.left {
-      background: url("/images/Page1-2.png") no-repeat center;
+      background: url("../images/Page1-2.png") no-repeat center;
       background-size: 40px 139px !important;
       @include retina {
-        background: url("/images/Page1-2@2x.png") no-repeat center;
+        background: url("../images/Page1-2@2x.png") no-repeat center;
       }
     }
   }
 }
 .page2 {
   .one {
-    background: url("/images/p2img.png") no-repeat center;
+    background: url("../images/p2img.png") no-repeat center;
     background-size: 149px 215px !important;
     @include retina {
-      background: url("/images/p2img@2x.png") no-repeat center;
+      background: url("../images/p2img@2x.png") no-repeat center;
     }
   }
 }
 .page3 {
   .one {
-    background: url("/images/Image3.png") no-repeat center;
+    background: url("../images/Image3.png") no-repeat center;
     background-size: 158px 129px !important;
     @include retina {
-      background: url("/images/Image3@2x.png") no-repeat center;
+      background: url("../images/Image3@2x.png") no-repeat center;
     }
   }
 }
@@ -302,10 +302,10 @@ article.block {
   }
   .pic {
     height: 129px;
-    background: url("/images/Image4.png") no-repeat center;
+    background: url("../images/Image4.png") no-repeat center;
     background-size: 129px 129px !important;
     @include retina {
-      background: url("/images/Image4@2x.png") no-repeat center;
+      background: url("../images/Image4@2x.png") no-repeat center;
     }
   }
   .row {
@@ -345,10 +345,10 @@ article.block {
     text-align: center;
   }
   .one {
-    background: url("/images/p5img.png") no-repeat center;
+    background: url("../images/p5img.png") no-repeat center;
     background-size: 140px 140px !important;
     @include retina {
-      background: url("/images/p5img@2x.png") no-repeat center;
+      background: url("../images/p5img@2x.png") no-repeat center;
     }
   }
   .two {
@@ -365,10 +365,10 @@ article.block {
         top: calc(50% - 6px);
         width: 12px;
         height: 12px;
-        background: url("/images/Triangleleft.png") no-repeat center;
+        background: url("../images/Triangleleft.png") no-repeat center;
         background-size: contain !important;
         @include retina {
-          background: url("/images/Triangleleft@2x.png") no-repeat center;
+          background: url("../images/Triangleleft@2x.png") no-repeat center;
         }
       }
     }
@@ -388,10 +388,10 @@ article.block {
     color: #808080;
   }
   .one {
-    background: url("/images/Image6.png") no-repeat center;
+    background: url("../images/Image6.png") no-repeat center;
     background-size: 159px 136px !important;
     @include retina {
-      background: url("/images/Image6@2x.png") no-repeat center;
+      background: url("../images/Image6@2x.png") no-repeat center;
     }
   }
   .help {
@@ -442,10 +442,10 @@ article.block {
       }
       &:nth-of-type(1) {
         .one {
-          background: url("/images/CombinedShape.png") no-repeat center;
+          background: url("../images/CombinedShape.png") no-repeat center;
           background-size: 100px 100px !important;
           @include retina {
-            background: url("/images/CombinedShape@2x.png") no-repeat center;
+            background: url("../images/CombinedShape@2x.png") no-repeat center;
           }
         }
       }
@@ -462,37 +462,37 @@ article.block {
           }
           &:nth-of-type(1) {
             span {
-              background: url("/images/peo1.png") no-repeat center;
+              background: url("../images/peo1.png") no-repeat center;
               background-size: 84px 109px !important;
               @include retina {
-                background: url("/images/peo1@2x.png") no-repeat center;
+                background: url("../images/peo1@2x.png") no-repeat center;
               }
             }
           }
           &:nth-of-type(2) {
             span {
-              background: url("/images/peo2.png") no-repeat center;
+              background: url("../images/peo2.png") no-repeat center;
               background-size: 110px 109px !important;
               @include retina {
-                background: url("/images/peo2@2x.png") no-repeat center;
+                background: url("../images/peo2@2x.png") no-repeat center;
               }
             }
           }
           &:nth-of-type(3) {
             span {
-              background: url("/images/peo3.png") no-repeat center;
+              background: url("../images/peo3.png") no-repeat center;
               background-size: 74px 109px !important;
               @include retina {
-                background: url("/images/peo3@2x.png") no-repeat center;
+                background: url("../images/peo3@2x.png") no-repeat center;
               }
             }
           }
           &:nth-of-type(4) {
             span {
-              background: url("/images/peo4.png") no-repeat center;
+              background: url("../images/peo4.png") no-repeat center;
               background-size: 40px 109px !important;
               @include retina {
-                background: url("/images/peo4@2x.png") no-repeat center;
+                background: url("../images/peo4@2x.png") no-repeat center;
               }
             }
           }
@@ -522,17 +522,17 @@ footer {
   a {
     padding: 6px 64px 6px 48px;
     &.line {
-      background: url("/images/line.png") no-repeat left center;
+      background: url("../images/line.png") no-repeat left center;
       background-size: 32px 26px !important;
       @include retina {
-        background: url("/images/line@2x.png") no-repeat left center;
+        background: url("../images/line@2x.png") no-repeat left center;
       }
     }
     &.mail {
-      background: url("/images/social_mail.png") no-repeat left center;
+      background: url("../images/social_mail.png") no-repeat left center;
       background-size: 31px 24px !important;
       @include retina {
-        background: url("/images/social_mail@2x.png") no-repeat left center;
+        background: url("../images/social_mail@2x.png") no-repeat left center;
       }
     }
   }
