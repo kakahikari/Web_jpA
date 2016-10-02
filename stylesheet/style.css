@@ -466,9 +466,6 @@ article.block {
         @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
           .page7 .tabs-content .item:nth-of-type(2) .one:nth-of-type(4) span {
             background: url("../images/peo4@2x.png") no-repeat center; } }
-      .page7 .tabs-content .item:nth-of-type(3) .one {
-        margin: 25px 0;
-        border-right: 1px #fff solid; }
       .page7 .tabs-content .item:nth-of-type(3) .text {
         margin: 4px 0; }
       .page7 .tabs-content .item .three {
