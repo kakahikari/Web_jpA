@@ -1,1 +1,539 @@
 @import "compass/reset";
+@import "compass/css3/box-sizing";
+@import "_mix2";
+
+$phone: 568px;
+$pad: 768px;
+$pc: 1024px;
+$hdpc: 1200px;
+
+$default: #404040;
+
+body {
+  font-size: 16px;
+  color: $default;
+}
+* {
+  @include box-sizing(border-box);
+}
+a {
+  color: $default;
+  text-decoration: none;
+}
+
+header {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: $pc;
+  padding: 6px 76px 2px;
+  line-height: .875em;
+  letter-spacing: .1em;
+  .left {
+    span {
+      display: block;
+      color: #ABB4BD;
+      font-size: .75em;
+    }
+  }
+  .right {
+    a {
+      margin-left: 36px;
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-size: contain !important;
+      cursor: pointer;
+      &.fb {
+        background: url("/images/social_fb.png") no-repeat center center;
+        @include retina {
+          background: url("/images/social_fb@2x.png") no-repeat center center;
+        }
+      }
+      &.ig {
+        background: url("/images/social_ig.png") no-repeat center center;
+        @include retina {
+          background: url("/images/social_ig@2x.png") no-repeat center center;
+        }
+      }
+      &.line {
+        background: url("/images/social_message.png") no-repeat center center;
+        @include retina {
+          background: url("/images/social_message@2x.png") no-repeat center center;
+        }
+      }
+      &.mail {
+        background: url("/images/social_mail.png") no-repeat center center;
+        @include retina {
+          background: url("/images/social_mail@2x.png") no-repeat center center;
+        }
+      }
+    }
+  }
+}
+.banner {
+  width: 100%;
+  padding: 136px 0;
+  color: #fff;
+  text-align: center;
+  font-size: 2em;
+  letter-spacing: .625em;
+  background: url("/images/banner.jpg") no-repeat center center;
+  background-size: cover !important;
+  @include retina {
+    background: url("/images/banner@2x.jpg") no-repeat center center;
+  }
+}
+nav {
+  margin: 0 auto;
+  width: 100%;
+  height: 94px;
+  max-width: 872px;
+  &.js-active {
+    ul {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+  }
+  ul {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: #fff;
+    li {
+      position: relative;
+      display: inline-flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      max-width: 145px;
+      height: 94px;
+      border-bottom: #EFEFF4 1px solid;
+      &:hover {
+        border-bottom: #E54D42 1px solid;
+      }
+      &.js-active {
+        border-bottom: #E54D42 1px solid;
+        &:after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          left: calc(50% - 7px);
+          bottom: 0;
+          width: 15px;
+          height: 15px;
+          background: url("/images/Triangle.png") no-repeat;
+          background-size: contain !important;
+          @include retina {
+            background: url("/images/Triangle@2x.png") no-repeat center center;
+          }
+        }
+      }
+      span {
+        position: absolute;
+        top: 1.8em;
+        left: 0;
+        left: calc(50% - 60px);
+        width: 120px;
+        font-size: .625em;
+        text-align: center;
+      }
+    }
+  }
+}
+article.block {
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  min-height: 320px;
+  max-width: $pc;
+  .one {
+    flex: 1;
+  }
+  .two {
+    flex: 2;
+    padding: 0 16px;
+  }
+  .three {
+    flex: 3;
+  }
+  div {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  h3 {
+    margin: 24px 0;
+    font-size: 1.5em;
+  }
+  h4 {
+    margin: 19px 0;
+    font-size: 1em;
+  }
+  .content {
+    letter-spacing: .07em;
+    line-height: 1.625em;
+    color: #808080;
+    &.red {
+      margin: 24px 0;
+      color: #FF7171;
+    }
+  }
+}
+.more {
+  padding-top: 36px;
+  background: url("/images/More.png") no-repeat top right;
+  background-size: 106px 36px !important;
+  @include retina {
+    background: url("/images/More@2x.png") no-repeat top right;
+  }
+  cursor: pointer;
+  &.js-active {
+    background: url("/images/Moreclose.png") no-repeat top right;
+    @include retina {
+      background: url("/images/Moreclose@2x.png") no-repeat top right;
+    }
+    .content {
+      display: block;
+    }
+  }
+  .content {
+    display: none;
+    padding: 12px 14px;
+    color: #fff !important;
+    background: #5AC8FA;
+    border-radius: 5px;
+    font-size: .625em;
+    line-height: 1.125em;
+  }
+}
+.help {
+  position: relative;
+  margin: 0;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 24px;
+  cursor: pointer;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 4.5em;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url("/images/help.png") no-repeat top right;
+    background-size: 24px 24px !important;
+    @include retina {
+      background: url("/images/help@2x.png") no-repeat top right;
+    }
+  }
+  &.js-active {
+    .content {
+      display: block;
+    }
+  }
+  .content {
+    margin: 18px 0;
+    display: none;
+    padding: 12px 14px;
+    color: #808080 !important;
+    border: #EFEFF4 1px solid;
+    border-radius: 5px;
+    font-size: .625em;
+    line-height: 1.125em;
+  }
+}
+.row {
+  flex-direction: row !important;
+}
+.column {
+  flex-direction: column !important;
+}
+.center {
+  align-items: center;
+}
+.page1 {
+  .one {
+    &.right {
+      background: url("/images/Page1.png") no-repeat center;
+      background-size: 139px 123px !important;
+      @include retina {
+        background: url("/images/Page1@2x.png") no-repeat center;
+      }
+    }
+    &.left {
+      background: url("/images/Page1-2.png") no-repeat center;
+      background-size: 40px 139px !important;
+      @include retina {
+        background: url("/images/Page1-2@2x.png") no-repeat center;
+      }
+    }
+  }
+}
+.page2 {
+  .one {
+    background: url("/images/p2img.png") no-repeat center;
+    background-size: 149px 215px !important;
+    @include retina {
+      background: url("/images/p2img@2x.png") no-repeat center;
+    }
+  }
+}
+.page3 {
+  .one {
+    background: url("/images/Image3.png") no-repeat center;
+    background-size: 158px 129px !important;
+    @include retina {
+      background: url("/images/Image3@2x.png") no-repeat center;
+    }
+  }
+}
+.page4 {
+  div {
+    display: block;
+  }
+  h3, h4 {
+    text-align: center;
+  }
+  .pic {
+    height: 129px;
+    background: url("/images/Image4.png") no-repeat center;
+    background-size: 129px 129px !important;
+    @include retina {
+      background: url("/images/Image4@2x.png") no-repeat center;
+    }
+  }
+  .row {
+    .one {
+      margin: 0 14px;
+      justify-content: flex-start;
+      div {
+        flex-direction: row;
+        padding: 9px 0;
+        text-align: center;
+        &.header {
+          background: #FDC02F;
+          color: #fff;
+        }
+        div {
+          justify-content: center;
+          align-items: center;
+          width: 40%;
+          padding: 0;
+          &:first-of-type {
+            width: 60%;
+          }
+        }
+      }
+    }
+  }
+  .hint {
+    margin: 0 14px 36px;
+    padding: 24px;
+    color: #FDC02F;
+    border: 1px #FDC02F solid;
+    border-radius: 64px;
+  }
+}
+.page5 {
+  h3, h4 {
+    text-align: center;
+  }
+  .one {
+    background: url("/images/p5img.png") no-repeat center;
+    background-size: 140px 140px !important;
+    @include retina {
+      background: url("/images/p5img@2x.png") no-repeat center;
+    }
+  }
+  .two {
+    flex-wrap: wrap;
+    h4 {
+      position: relative;
+      margin: 19px auto;
+      display: inline-block;
+      color: #808080;
+      &:after {
+        content: "";
+        position: absolute;
+        left: -1.5em;
+        top: calc(50% - 6px);
+        width: 12px;
+        height: 12px;
+        background: url("/images/Triangleleft.png") no-repeat center;
+        background-size: contain !important;
+        @include retina {
+          background: url("/images/Triangleleft@2x.png") no-repeat center;
+        }
+      }
+    }
+    .item {
+      justify-content: flex-start;
+      width: 50%;
+      padding: 12px 12px 30px;
+    }
+  }
+}
+.page6 {
+  h3 {
+    text-align: center;
+  }
+  h4 {
+    margin: 9px 0;
+    color: #808080;
+  }
+  .one {
+    background: url("/images/Image6.png") no-repeat center;
+    background-size: 159px 136px !important;
+    @include retina {
+      background: url("/images/Image6@2x.png") no-repeat center;
+    }
+  }
+  .help {
+    margin-bottom: 64px;
+  }
+}
+.page7 {
+  max-width: none !important;
+  background: #C42F54;
+  .tabs {
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    max-width: 872px;
+    li {
+      margin: 0 auto;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      height: 48px;
+      max-width: 218px;
+      color: #fff;
+      cursor: pointer;
+      &.js-active {
+        font-size: 1.5em;
+      }
+      &:hover, &.js-active {
+        background: #E54260;
+      }
+    }
+  }
+  .tabs-content {
+    background: #E54260;
+    color: #fff;
+    letter-spacing: .1em;
+    line-height: 1.375em;
+    .item {
+      margin: 0 auto;
+      display: none;
+      flex-direction: row;
+      width: 100%;
+      max-width: 872px;
+      min-height: 272px;
+      &.js-active {
+        display: flex;
+      }
+      &:nth-of-type(1) {
+        .one {
+          background: url("/images/CombinedShape.png") no-repeat center;
+          background-size: 100px 100px !important;
+          @include retina {
+            background: url("/images/CombinedShape@2x.png") no-repeat center;
+          }
+        }
+      }
+      &:nth-of-type(2) {
+        .one {
+          span {
+            padding-top: 148px;
+            cursor: pointer;
+            opacity: .48;
+            text-align: center;
+            &:hover {
+              opacity: 1;
+            }
+          }
+          &:nth-of-type(1) {
+            span {
+              background: url("/images/peo1.png") no-repeat center;
+              background-size: 84px 109px !important;
+              @include retina {
+                background: url("/images/peo1@2x.png") no-repeat center;
+              }
+            }
+          }
+          &:nth-of-type(2) {
+            span {
+              background: url("/images/peo2.png") no-repeat center;
+              background-size: 110px 109px !important;
+              @include retina {
+                background: url("/images/peo2@2x.png") no-repeat center;
+              }
+            }
+          }
+          &:nth-of-type(3) {
+            span {
+              background: url("/images/peo3.png") no-repeat center;
+              background-size: 74px 109px !important;
+              @include retina {
+                background: url("/images/peo3@2x.png") no-repeat center;
+              }
+            }
+          }
+          &:nth-of-type(4) {
+            span {
+              background: url("/images/peo4.png") no-repeat center;
+              background-size: 40px 109px !important;
+              @include retina {
+                background: url("/images/peo4@2x.png") no-repeat center;
+              }
+            }
+          }
+        }
+      }
+      &:nth-of-type(3) {
+        .one {
+          margin: 25px 0;
+          border-right: 1px #fff solid;
+        }
+        .text {
+          margin: 4px 0;
+        }
+      }
+      .three {
+        margin: 0 23px;
+      }
+    }
+  }
+}
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+  text-align: center;
+  a {
+    padding: 6px 64px 6px 48px;
+    &.line {
+      background: url("/images/line.png") no-repeat left center;
+      background-size: 32px 26px !important;
+      @include retina {
+        background: url("/images/line@2x.png") no-repeat left center;
+      }
+    }
+    &.mail {
+      background: url("/images/social_mail.png") no-repeat left center;
+      background-size: 31px 24px !important;
+      @include retina {
+        background: url("/images/social_mail@2x.png") no-repeat left center;
+      }
+    }
+  }
+}
