@@ -38,4 +38,14 @@ $(function(){
   $(document).on('click','.help',function() {
     $(this).toggleClass('js-active');
   });
+  $(document).on('click','.right .social',function() {
+    $('.social-mobile-menu').toggleClass('js-active');
+    $('.left span').toggleClass('js-disable');
+  });
+  $(document).on('click','.left .menu',function() {
+    $('nav').toggleClass('js-menu-active');
+  });
+  $(document).on('click','nav .close',function() {
+    $('nav').toggleClass('js-menu-active');
+  });
 });

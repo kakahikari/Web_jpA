@@ -83,6 +83,21 @@ a {
   color: #404040;
   text-decoration: none; }
 
+.target-fix {
+  position: absolute;
+  top: -94px; }
+  @media only screen and (max-width: 767px) {
+    .target-fix {
+      top: -40px; } }
+
+@media only screen and (min-width: 768px) {
+  .only-phone {
+    display: none !important; } }
+
+@media only screen and (max-width: 767px) {
+  .only-pc {
+    display: none !important; } }
+
 header {
   margin: 0 auto;
   display: flex;
@@ -91,11 +106,41 @@ header {
   max-width: 1024px;
   padding: 6px 76px 2px;
   line-height: .875em;
-  letter-spacing: .1em; }
+  letter-spacing: .1em;
+  background: #fff;
+  z-index: 998; }
+  @media only screen and (max-width: 767px) {
+    header {
+      position: fixed;
+      top: 0;
+      padding: 6px;
+      border-bottom: #EFEFF4 1px solid;
+      line-height: normal; } }
   header .left span {
-    display: block;
+    display: inline-block;
     color: #ABB4BD;
     font-size: .75em; }
+    header .left span.js-disable {
+      display: none; }
+  header .left .menu {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-size: contain !important;
+    cursor: pointer;
+    background: url("../images/menu.png") no-repeat center center; }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      header .left .menu {
+        background: url("../images/menu@2x.png") no-repeat center center; } }
+  header .right .social-mobile-menu {
+    display: inline-block;
+    height: 24px;
+    overflow: hidden; }
+    @media only screen and (max-width: 767px) {
+      header .right .social-mobile-menu {
+        width: 0; } }
+    header .right .social-mobile-menu.js-active {
+      width: auto; }
   header .right a {
     margin-left: 36px;
     display: inline-block;
@@ -103,6 +148,9 @@ header {
     height: 24px;
     background-size: contain !important;
     cursor: pointer; }
+    @media only screen and (max-width: 767px) {
+      header .right a {
+        margin-left: 18px; } }
     header .right a.fb {
       background: url("../images/social_fb.png") no-repeat center center; }
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -123,6 +171,12 @@ header {
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         header .right a.mail {
           background: url("../images/social_mail@2x.png") no-repeat center center; } }
+    header .right a.social {
+      margin-left: 0;
+      background: url("../images/social.png") no-repeat center center; }
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        header .right a.social {
+          background: url("../images/social@2x.png") no-repeat center center; } }
 
 .banner {
   width: 100%;
@@ -136,22 +190,44 @@ header {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .banner {
       background: url("../images/banner@2x.jpg") no-repeat center center; } }
+  @media only screen and (max-width: 767px) {
+    .banner {
+      padding: 271px 0;
+      font-size: 1.125em;
+      letter-spacing: .375em; } }
 
 nav {
   margin: 0 auto;
   width: 100%;
   height: 94px;
-  max-width: 872px; }
-  nav.js-active ul {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999; }
+  max-width: 872px;
+  background: #fff;
+  z-index: 999;
+  transition: all .3s; }
+  @media only screen and (max-width: 767px) {
+    nav {
+      position: fixed;
+      top: 0;
+      left: -160px;
+      width: 160px;
+      height: 100vh;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); } }
+  nav.js-menu-active {
+    left: 0; }
+  @media only screen and (min-width: 768px) {
+    nav.js-active ul {
+      position: fixed;
+      top: 0;
+      left: 0; } }
   nav ul {
     display: flex;
     justify-content: center;
     width: 100%;
-    background: #fff; }
+    background: #fff;
+    z-index: 999; }
+    @media only screen and (max-width: 767px) {
+      nav ul {
+        flex-direction: column; } }
     nav ul li {
       position: relative;
       display: inline-flex;
@@ -161,23 +237,36 @@ nav {
       max-width: 145px;
       height: 94px;
       border-bottom: #EFEFF4 1px solid; }
+      @media only screen and (max-width: 767px) {
+        nav ul li {
+          height: 64px;
+          max-width: none;
+          border-bottom: 0;
+          border-right: transparent 1px solid; } }
       nav ul li:hover {
         border-bottom: #E54D42 1px solid; }
-      nav ul li.js-active {
-        border-bottom: #E54D42 1px solid; }
-        nav ul li.js-active:after {
-          content: "";
-          position: absolute;
-          left: 50%;
-          left: calc(50% - 7px);
-          bottom: 0;
-          width: 15px;
-          height: 15px;
-          background: url("../images/Triangle.png") no-repeat;
-          background-size: contain !important; }
-          @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            nav ul li.js-active:after {
-              background: url("../images/Triangle@2x.png") no-repeat center center; } }
+      @media only screen and (max-width: 767px) {
+        nav ul li.js-active {
+          border-right: #E54D42 1px solid; } }
+      nav ul li.js-active:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        left: calc(50% - 7px);
+        bottom: 0;
+        width: 15px;
+        height: 15px;
+        background: url("../images/Triangle.png") no-repeat;
+        background-size: contain !important; }
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+          nav ul li.js-active:after {
+            background: url("../images/Triangle@2x.png") no-repeat center center; } }
+        @media only screen and (max-width: 767px) {
+          nav ul li.js-active:after {
+            left: auto;
+            right: 0;
+            bottom: calc(50% - 7px);
+            transform: rotate(-90deg); } }
       nav ul li span {
         position: absolute;
         top: 1.8em;
@@ -186,8 +275,22 @@ nav {
         width: 120px;
         font-size: .625em;
         text-align: center; }
+        @media only screen and (max-width: 767px) {
+          nav ul li span {
+            top: .5em; } }
+  nav .close {
+    margin: 6px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url("../images/close.png") no-repeat;
+    background-size: contain !important; }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      nav .close {
+        background: url("../images/close@2x.png") no-repeat center center; } }
 
 article.block {
+  position: relative;
   margin: 0 auto;
   display: flex;
   width: 100%;

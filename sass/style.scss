@@ -20,6 +20,23 @@ a {
   color: $default;
   text-decoration: none;
 }
+.target-fix {
+  position: absolute;
+  top: -94px;
+  @include breakpoint($pad, flase) {
+    top: -40px;
+  }
+}
+.only-phone {
+  @include breakpoint($pad) {
+    display: none !important;
+  }
+}
+.only-pc {
+  @include breakpoint($pad, false) {
+    display: none !important;
+  }
+}
 
 header {
   margin: 0 auto;
@@ -30,14 +47,48 @@ header {
   padding: 6px 76px 2px;
   line-height: .875em;
   letter-spacing: .1em;
+  background: #fff;
+  z-index: 998;
+  @include breakpoint($pad, false) {
+    position: fixed;
+    top: 0;
+    padding: 6px;
+    border-bottom: #EFEFF4 1px solid;
+    line-height: normal;
+  }
   .left {
     span {
-      display: block;
+      display: inline-block;
       color: #ABB4BD;
       font-size: .75em;
+      &.js-disable {
+        display: none;
+      }
+    }
+    .menu {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-size: contain !important;
+      cursor: pointer;
+      background: url("../images/menu.png") no-repeat center center;
+      @include retina {
+        background: url("../images/menu@2x.png") no-repeat center center;
+      }
     }
   }
   .right {
+    .social-mobile-menu {
+      display: inline-block;
+      height: 24px;
+      overflow: hidden;
+      @include breakpoint($pad, false) {
+        width: 0;
+      }
+      &.js-active {
+        width: auto;
+      }
+    }
     a {
       margin-left: 36px;
       display: inline-block;
@@ -45,6 +96,9 @@ header {
       height: 24px;
       background-size: contain !important;
       cursor: pointer;
+      @include breakpoint($pad, false) {
+        margin-left: 18px;
+      }
       &.fb {
         background: url("../images/social_fb.png") no-repeat center center;
         @include retina {
@@ -69,6 +123,13 @@ header {
           background: url("../images/social_mail@2x.png") no-repeat center center;
         }
       }
+      &.social {
+        margin-left: 0;
+        background: url("../images/social.png") no-repeat center center;
+        @include retina {
+          background: url("../images/social@2x.png") no-repeat center center;
+        }
+      }
     }
   }
 }
@@ -84,18 +145,38 @@ header {
   @include retina {
     background: url("../images/banner@2x.jpg") no-repeat center center;
   }
+  @include breakpoint($pad, false) {
+    padding: 271px 0;
+    font-size: 1.125em;
+    letter-spacing: .375em;
+  }
 }
 nav {
   margin: 0 auto;
   width: 100%;
   height: 94px;
   max-width: 872px;
+  background: #fff;
+  z-index: 999;
+  transition: all .3s;
+  @include breakpoint($pad, false) {
+    position: fixed;
+    top: 0;
+    left: -160px;
+    width: 160px;
+    height: 100vh;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+  &.js-menu-active {
+    left: 0;
+  }
   &.js-active {
-    ul {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 999;
+    @include breakpoint($pad) {
+      ul {
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
     }
   }
   ul {
@@ -103,6 +184,10 @@ nav {
     justify-content: center;
     width: 100%;
     background: #fff;
+    z-index: 999;
+    @include breakpoint($pad, false) {
+      flex-direction: column;
+    }
     li {
       position: relative;
       display: inline-flex;
@@ -112,11 +197,19 @@ nav {
       max-width: 145px;
       height: 94px;
       border-bottom: #EFEFF4 1px solid;
+      @include breakpoint($pad, false) {
+        height: 64px;
+        max-width: none;
+        border-bottom: 0;
+        border-right: transparent 1px solid;
+      }
       &:hover {
         border-bottom: #E54D42 1px solid;
       }
       &.js-active {
-        border-bottom: #E54D42 1px solid;
+        @include breakpoint($pad, false) {
+          border-right: #E54D42 1px solid;
+        }
         &:after {
           content: "";
           position: absolute;
@@ -130,6 +223,12 @@ nav {
           @include retina {
             background: url("../images/Triangle@2x.png") no-repeat center center;
           }
+          @include breakpoint($pad, false) {
+            left: auto;
+            right: 0;
+            bottom: calc(50% - 7px);
+            transform: rotate(-90deg);
+          }
         }
       }
       span {
@@ -140,11 +239,26 @@ nav {
         width: 120px;
         font-size: .625em;
         text-align: center;
+        @include breakpoint($pad, false) {
+          top: .5em;
+        }
       }
+    }
+  }
+  .close {
+    margin: 6px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url("../images/close.png") no-repeat;
+    background-size: contain !important;
+    @include retina {
+      background: url("../images/close@2x.png") no-repeat center center;
     }
   }
 }
 article.block {
+  position: relative;
   margin: 0 auto;
   display: flex;
   width: 100%;
