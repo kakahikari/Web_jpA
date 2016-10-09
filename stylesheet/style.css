@@ -284,7 +284,8 @@ nav {
     width: 24px;
     height: 24px;
     background: url("../images/close.png") no-repeat;
-    background-size: contain !important; }
+    background-size: contain !important;
+    z-index: 999; }
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
       nav .close {
         background: url("../images/close@2x.png") no-repeat center center; } }
@@ -298,9 +299,17 @@ article.block {
   max-width: 1024px; }
   article.block .one {
     flex: 1; }
+    @media only screen and (max-width: 767px) {
+      article.block .one {
+        min-height: 50vh; } }
   article.block .two {
     flex: 2;
     padding: 0 16px; }
+    @media only screen and (max-width: 767px) {
+      article.block .two {
+        flex: 1;
+        justify-content: flex-start;
+        min-height: 50vh; } }
   article.block .three {
     flex: 3; }
   article.block div {
@@ -310,6 +319,9 @@ article.block {
   article.block h3 {
     margin: 24px 0;
     font-size: 1.5em; }
+    @media only screen and (max-width: 767px) {
+      article.block h3 {
+        text-align: center; } }
   article.block h4 {
     margin: 19px 0;
     font-size: 1em; }
@@ -387,19 +399,29 @@ article.block {
 .center {
   align-items: center; }
 
-.page1 .one.right {
+@media only screen and (max-width: 767px) {
+  .page1 {
+    flex-direction: column; } }
+.page1 .one.left {
   background: url("../images/Page1.png") no-repeat center;
   background-size: 139px 123px !important; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .page1 .one.right {
+    .page1 .one.left {
       background: url("../images/Page1@2x.png") no-repeat center; } }
-.page1 .one.left {
+  @media only screen and (max-width: 767px) {
+    .page1 .one.left {
+      background-position: center bottom; } }
+.page1 .one.right {
   background: url("../images/Page1-2.png") no-repeat center;
   background-size: 40px 139px !important; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .page1 .one.left {
+    .page1 .one.right {
       background: url("../images/Page1-2@2x.png") no-repeat center; } }
 
+@media only screen and (max-width: 767px) {
+  .page2 {
+    flex-direction: column;
+    flex-flow: column-reverse; } }
 .page2 .one {
   background: url("../images/p2img.png") no-repeat center;
   background-size: 149px 215px !important; }
@@ -407,6 +429,9 @@ article.block {
     .page2 .one {
       background: url("../images/p2img@2x.png") no-repeat center; } }
 
+@media only screen and (max-width: 767px) {
+  .page3 {
+    flex-direction: column; } }
 .page3 .one {
   background: url("../images/Image3.png") no-repeat center;
   background-size: 158px 129px !important; }
@@ -425,9 +450,17 @@ article.block {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .page4 .pic {
       background: url("../images/Image4@2x.png") no-repeat center; } }
+@media only screen and (max-width: 767px) {
+  .page4 .row {
+    flex-direction: column !important; } }
+.page4 .row .sup {
+  min-height: auto; }
 .page4 .row .one {
   margin: 0 14px;
   justify-content: flex-start; }
+  @media only screen and (max-width: 767px) {
+    .page4 .row .one {
+      justify-content: center; } }
   .page4 .row .one div {
     flex-direction: row;
     padding: 9px 0;
@@ -448,15 +481,30 @@ article.block {
   color: #FDC02F;
   border: 1px #FDC02F solid;
   border-radius: 64px; }
+  @media only screen and (max-width: 767px) {
+    .page4 .hint {
+      line-height: 1.5em; } }
 
 .page5 h3, .page5 h4 {
   text-align: center; }
+.page5 h3 {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 25vh; }
+@media only screen and (max-width: 767px) {
+  .page5 .row {
+    flex-direction: column !important; } }
 .page5 .one {
   background: url("../images/p5img.png") no-repeat center;
   background-size: 140px 140px !important; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .page5 .one {
       background: url("../images/p5img@2x.png") no-repeat center; } }
+  @media only screen and (max-width: 767px) {
+    .page5 .one {
+      min-height: 25vh !important;
+      background-position: center top; } }
 .page5 .two {
   flex-wrap: wrap; }
   .page5 .two h4 {
@@ -480,20 +528,36 @@ article.block {
     justify-content: flex-start;
     width: 50%;
     padding: 12px 12px 30px; }
+    @media only screen and (max-width: 767px) {
+      .page5 .two .item {
+        width: 100%; } }
 
 .page6 h3 {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 25vh;
   text-align: center; }
 .page6 h4 {
   margin: 9px 0;
   color: #808080; }
+@media only screen and (max-width: 767px) {
+  .page6 .row {
+    flex-direction: column !important; } }
 .page6 .one {
   background: url("../images/Image6.png") no-repeat center;
   background-size: 159px 136px !important; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .page6 .one {
       background: url("../images/Image6@2x.png") no-repeat center; } }
+  @media only screen and (max-width: 767px) {
+    .page6 .one {
+      min-height: 25vh !important;
+      background-position: center top; } }
 .page6 .help {
   margin-bottom: 64px; }
+.page6 .content {
+  margin-left: 16px; }
 
 .page7 {
   max-width: none !important;
@@ -503,6 +567,9 @@ article.block {
     display: flex;
     width: 100%;
     max-width: 872px; }
+    @media only screen and (max-width: 767px) {
+      .page7 .tabs {
+        flex-wrap: wrap; } }
     .page7 .tabs li {
       margin: 0 auto;
       padding: 0;
@@ -514,6 +581,10 @@ article.block {
       max-width: 218px;
       color: #fff;
       cursor: pointer; }
+      @media only screen and (max-width: 767px) {
+        .page7 .tabs li {
+          flex: auto;
+          width: 50%; } }
       .page7 .tabs li.js-active {
         font-size: 1.5em; }
       .page7 .tabs li:hover, .page7 .tabs li.js-active {
@@ -530,6 +601,9 @@ article.block {
       width: 100%;
       max-width: 872px;
       min-height: 272px; }
+      @media only screen and (max-width: 767px) {
+        .page7 .tabs-content .item {
+          flex-direction: column; } }
       .page7 .tabs-content .item.js-active {
         display: flex; }
       .page7 .tabs-content .item:nth-of-type(1) .one {
@@ -538,6 +612,21 @@ article.block {
         @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
           .page7 .tabs-content .item:nth-of-type(1) .one {
             background: url("../images/CombinedShape@2x.png") no-repeat center; } }
+        @media only screen and (max-width: 767px) {
+          .page7 .tabs-content .item:nth-of-type(1) .one {
+            min-height: 25vh; } }
+      @media only screen and (max-width: 767px) {
+        .page7 .tabs-content .item:nth-of-type(1) .three {
+          padding: 24px 0; } }
+      @media only screen and (max-width: 767px) {
+        .page7 .tabs-content .item:nth-of-type(2) {
+          flex-direction: row;
+          flex-wrap: wrap; } }
+      @media only screen and (max-width: 767px) {
+        .page7 .tabs-content .item:nth-of-type(2) .one {
+          flex: auto;
+          width: 50%;
+          min-height: 25vh; } }
       .page7 .tabs-content .item:nth-of-type(2) .one span {
         padding-top: 148px;
         cursor: pointer;
@@ -569,19 +658,35 @@ article.block {
         @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
           .page7 .tabs-content .item:nth-of-type(2) .one:nth-of-type(4) span {
             background: url("../images/peo4@2x.png") no-repeat center; } }
+      @media only screen and (max-width: 767px) {
+        .page7 .tabs-content .item:nth-of-type(3) .one {
+          flex: 0;
+          min-height: auto; } }
       .page7 .tabs-content .item:nth-of-type(3) .text {
         margin: 4px 0; }
+        @media only screen and (max-width: 767px) {
+          .page7 .tabs-content .item:nth-of-type(3) .text {
+            margin: 17px 0; } }
       .page7 .tabs-content .item .three {
         margin: 0 23px; }
+        @media only screen and (max-width: 767px) {
+          .page7 .tabs-content .item .three {
+            padding: 24px 0; } }
 
 footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 36px;
   text-align: center; }
   footer a {
-    padding: 6px 64px 6px 48px; }
+    display: inline-block;
+    height: 48px;
+    padding: 6px 64px 6px 43px;
+    line-height: 36px; }
+    @media only screen and (max-width: 767px) {
+      footer a {
+        padding: 6px 1em 6px 43px;
+        font-size: .75em; } }
     footer a.line {
       background: url("../images/line.png") no-repeat left center;
       background-size: 32px 26px !important; }

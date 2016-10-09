@@ -255,6 +255,7 @@ nav {
     @include retina {
       background: url("../images/close@2x.png") no-repeat center center;
     }
+    z-index: 999;
   }
 }
 article.block {
@@ -266,10 +267,18 @@ article.block {
   max-width: $pc;
   .one {
     flex: 1;
+    @include breakpoint($pad, false) {
+      min-height: 50vh;
+    }
   }
   .two {
     flex: 2;
     padding: 0 16px;
+    @include breakpoint($pad, false) {
+      flex: 1;
+      justify-content: flex-start;
+      min-height: 50vh;
+    }
   }
   .three {
     flex: 3;
@@ -282,6 +291,9 @@ article.block {
   h3 {
     margin: 24px 0;
     font-size: 1.5em;
+    @include breakpoint($pad, false) {
+      text-align: center;
+    }
   }
   h4 {
     margin: 19px 0;
@@ -372,15 +384,21 @@ article.block {
   align-items: center;
 }
 .page1 {
+  @include breakpoint($pad, false) {
+    flex-direction: column;
+  }
   .one {
-    &.right {
+    &.left {
       background: url("../images/Page1.png") no-repeat center;
       background-size: 139px 123px !important;
       @include retina {
         background: url("../images/Page1@2x.png") no-repeat center;
       }
+      @include breakpoint($pad, false) {
+        background-position: center bottom;
+      }
     }
-    &.left {
+    &.right {
       background: url("../images/Page1-2.png") no-repeat center;
       background-size: 40px 139px !important;
       @include retina {
@@ -390,6 +408,10 @@ article.block {
   }
 }
 .page2 {
+  @include breakpoint($pad, false) {
+    flex-direction: column;
+    flex-flow: column-reverse;
+  }
   .one {
     background: url("../images/p2img.png") no-repeat center;
     background-size: 149px 215px !important;
@@ -399,6 +421,9 @@ article.block {
   }
 }
 .page3 {
+  @include breakpoint($pad, false) {
+    flex-direction: column;
+  }
   .one {
     background: url("../images/Image3.png") no-repeat center;
     background-size: 158px 129px !important;
@@ -423,9 +448,18 @@ article.block {
     }
   }
   .row {
+    @include breakpoint($pad, false) {
+      flex-direction: column !important;
+    }
+    .sup {
+      min-height: auto;
+    }
     .one {
       margin: 0 14px;
       justify-content: flex-start;
+      @include breakpoint($pad, false) {
+        justify-content: center;
+      }
       div {
         flex-direction: row;
         padding: 9px 0;
@@ -452,17 +486,35 @@ article.block {
     color: #FDC02F;
     border: 1px #FDC02F solid;
     border-radius: 64px;
+    @include breakpoint($pad, false) {
+      line-height: 1.5em;
+    }
   }
 }
 .page5 {
   h3, h4 {
     text-align: center;
   }
+  h3 {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 25vh;
+  }
+  .row {
+    @include breakpoint($pad, false) {
+      flex-direction: column !important;
+    }
+  }
   .one {
     background: url("../images/p5img.png") no-repeat center;
     background-size: 140px 140px !important;
     @include retina {
       background: url("../images/p5img@2x.png") no-repeat center;
+    }
+    @include breakpoint($pad, false) {
+      min-height: 25vh !important;
+      background-position: center top;
     }
   }
   .two {
@@ -490,16 +542,28 @@ article.block {
       justify-content: flex-start;
       width: 50%;
       padding: 12px 12px 30px;
+      @include breakpoint($pad, false) {
+        width: 100%;
+      }
     }
   }
 }
 .page6 {
   h3 {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 25vh;
     text-align: center;
   }
   h4 {
     margin: 9px 0;
     color: #808080;
+  }
+  .row {
+    @include breakpoint($pad, false) {
+      flex-direction: column !important;
+    }
   }
   .one {
     background: url("../images/Image6.png") no-repeat center;
@@ -507,9 +571,16 @@ article.block {
     @include retina {
       background: url("../images/Image6@2x.png") no-repeat center;
     }
+    @include breakpoint($pad, false) {
+      min-height: 25vh !important;
+      background-position: center top;
+    }
   }
   .help {
     margin-bottom: 64px;
+  }
+  .content {
+    margin-left: 16px;
   }
 }
 .page7 {
@@ -520,6 +591,9 @@ article.block {
     display: flex;
     width: 100%;
     max-width: 872px;
+    @include breakpoint($pad, false) {
+      flex-wrap: wrap;
+    }
     li {
       margin: 0 auto;
       padding: 0;
@@ -531,6 +605,10 @@ article.block {
       max-width: 218px;
       color: #fff;
       cursor: pointer;
+      @include breakpoint($pad, false) {
+        flex: auto;
+        width: 50%;
+      }
       &.js-active {
         font-size: 1.5em;
       }
@@ -551,6 +629,9 @@ article.block {
       width: 100%;
       max-width: 872px;
       min-height: 272px;
+      @include breakpoint($pad, false) {
+        flex-direction: column;
+      }
       &.js-active {
         display: flex;
       }
@@ -561,10 +642,27 @@ article.block {
           @include retina {
             background: url("../images/CombinedShape@2x.png") no-repeat center;
           }
+          @include breakpoint($pad, false) {
+            min-height: 25vh;
+          }
+        }
+        .three {
+          @include breakpoint($pad, false) {
+            padding: 24px 0;
+          }
         }
       }
       &:nth-of-type(2) {
+        @include breakpoint($pad, false) {
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
         .one {
+          @include breakpoint($pad, false) {
+            flex: auto;
+            width: 50%;
+            min-height: 25vh;
+          }
           span {
             padding-top: 148px;
             cursor: pointer;
@@ -613,12 +711,24 @@ article.block {
         }
       }
       &:nth-of-type(3) {
+        .one {
+          @include breakpoint($pad, false) {
+            flex: 0;
+            min-height: auto;
+          }
+        }
         .text {
           margin: 4px 0;
+          @include breakpoint($pad, false) {
+            margin: 17px 0;
+          }
         }
       }
       .three {
         margin: 0 23px;
+        @include breakpoint($pad, false) {
+          padding: 24px 0;
+        }
       }
     }
   }
@@ -627,10 +737,16 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 36px;
   text-align: center;
   a {
-    padding: 6px 64px 6px 48px;
+    display: inline-block;
+    height: 48px;
+    padding: 6px 64px 6px 43px;
+    line-height: 36px;
+    @include breakpoint($pad, false) {
+      padding: 6px 1em 6px 43px;
+      font-size: .75em;
+    }
     &.line {
       background: url("../images/line.png") no-repeat left center;
       background-size: 32px 26px !important;
