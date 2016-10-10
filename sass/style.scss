@@ -141,6 +141,12 @@ header {
           background: url("../images/social@2x.png") no-repeat center center;
         }
       }
+      &.language {
+        background: url("../images/language.png") no-repeat center center;
+        @include retina {
+          background: url("../images/language@2x.png") no-repeat center center;
+        }
+      }
     }
   }
 }
@@ -190,6 +196,9 @@ nav {
       }
     }
   }
+  &.jp {
+    font-size: .9em;
+  }
   ul {
     display: flex;
     justify-content: center;
@@ -215,7 +224,9 @@ nav {
         border-right: transparent 1px solid;
       }
       &:hover {
-        border-bottom: #E54D42 1px solid;
+        @include breakpoint($pad) {
+          border-bottom: #E54D42 1px solid;
+        }
       }
       &.js-active {
         @include breakpoint($pad, false) {
@@ -241,6 +252,17 @@ nav {
             bottom: calc(50% - 7px);
             transform: rotate(-90deg);
           }
+        }
+      }
+      &.language {
+        background: url("../images/language.png") no-repeat center center;
+        background-size: 24px 24px !important;
+        @include retina {
+          background: url("../images/language@2x.png") no-repeat center center;
+        }
+        a {
+          width: 100%;
+          height: 100%;
         }
       }
       span {
@@ -356,6 +378,22 @@ article.block {
     background-size: 24px 24px !important;
     @include retina {
       background: url("../images/help@2x.png") no-repeat top right;
+    }
+  }
+  &.jp {
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 7.5em;
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: url("../images/help.png") no-repeat top right;
+      background-size: 24px 24px !important;
+      @include retina {
+        background: url("../images/help@2x.png") no-repeat top right;
+      }
     }
   }
   &.js-active {
@@ -606,6 +644,13 @@ article.block {
     max-width: 872px;
     @include breakpoint($pad, false) {
       flex-wrap: wrap;
+    }
+    &.jp {
+      li {
+        &.js-active {
+          font-size: 1em;
+        }
+      }
     }
     li {
       margin: 0 auto;

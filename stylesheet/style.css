@@ -163,6 +163,11 @@ header {
       @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         header .right a.social {
           background: url("../images/social@2x.png") no-repeat center center; } }
+    header .right a.language {
+      background: url("../images/language.png") no-repeat center center; }
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        header .right a.language {
+          background: url("../images/language@2x.png") no-repeat center center; } }
 
 .banner {
   width: 100%;
@@ -205,6 +210,8 @@ nav {
       position: fixed;
       top: 0;
       left: 0; } }
+  nav.jp {
+    font-size: .9em; }
   nav ul {
     display: flex;
     justify-content: center;
@@ -229,8 +236,9 @@ nav {
           max-width: none;
           border-bottom: 0;
           border-right: transparent 1px solid; } }
-      nav ul li:hover {
-        border-bottom: #E54D42 1px solid; }
+      @media only screen and (min-width: 768px) {
+        nav ul li:hover {
+          border-bottom: #E54D42 1px solid; } }
       @media only screen and (max-width: 767px) {
         nav ul li.js-active {
           border-right: #E54D42 1px solid;
@@ -254,6 +262,15 @@ nav {
             right: 0;
             bottom: calc(50% - 7px);
             transform: rotate(-90deg); } }
+      nav ul li.language {
+        background: url("../images/language.png") no-repeat center center;
+        background-size: 24px 24px !important; }
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+          nav ul li.language {
+            background: url("../images/language@2x.png") no-repeat center center; } }
+        nav ul li.language a {
+          width: 100%;
+          height: 100%; }
       nav ul li span {
         position: absolute;
         top: 1.8em;
@@ -353,6 +370,19 @@ article.block {
     background-size: 24px 24px !important; }
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
       .help:after {
+        background: url("../images/help@2x.png") no-repeat top right; } }
+  .help.jp:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 7.5em;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url("../images/help.png") no-repeat top right;
+    background-size: 24px 24px !important; }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .help.jp:after {
         background: url("../images/help@2x.png") no-repeat top right; } }
   .help.js-active .content {
     display: block; }
@@ -558,6 +588,8 @@ article.block {
     @media only screen and (max-width: 767px) {
       .page7 .tabs {
         flex-wrap: wrap; } }
+    .page7 .tabs.jp li.js-active {
+      font-size: 1em; }
     .page7 .tabs li {
       margin: 0 auto;
       padding: 0;
