@@ -44,8 +44,20 @@ $(function(){
   });
   $(document).on('click','.left .menu',function() {
     $('nav').toggleClass('js-menu-active');
+    $('.left .menu').toggleClass('js-menu-active');
   });
-  $(document).on('click','nav .close',function() {
-    $('nav').toggleClass('js-menu-active');
-  });
+
+  // iOS fix fixed
+  var u = navigator.userAgent, app = navigator.appVersion;
+  var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+
+  if (isIOS) {
+    $('header').addClass('js-fix-fixed');
+    $('nav').addClass('js-fix-fixed');
+    $(document).on('scroll', function () {
+      $('header').css('top', $(this).scrollTop());
+      $('nav').css('top', $(this).scrollTop() + 40);
+    });
+  }
+
 });

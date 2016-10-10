@@ -71,8 +71,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   unicode-range: U+123, U+456-7FF, U+9??;
   src: local("Ubuntu Bold"), local("Ubuntu-Bold"), url(http://themes.googleusercontent.com/static/fonts/ubuntu/v5/0ihfXUL2emPh0ROJezvraD8E0i7KZn-EPnyo3HZu7kw.woff) format("woff"); }
 body {
+  position: relative;
   font-size: 16px;
-  color: #404040; }
+  color: #404040;
+  z-index: 1; }
 
 * {
   -moz-box-sizing: border-box;
@@ -89,6 +91,9 @@ a {
   @media only screen and (max-width: 767px) {
     .target-fix {
       top: -40px; } }
+
+.js-fix-fixed {
+  position: absolute !important; }
 
 @media only screen and (min-width: 768px) {
   .only-phone {
@@ -108,7 +113,7 @@ header {
   line-height: .875em;
   letter-spacing: .1em;
   background: #fff;
-  z-index: 998; }
+  z-index: 996; }
   @media only screen and (max-width: 767px) {
     header {
       position: fixed;
@@ -132,6 +137,11 @@ header {
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
       header .left .menu {
         background: url("../images/menu@2x.png") no-repeat center center; } }
+    header .left .menu.js-menu-active {
+      background: url("../images/close.png") no-repeat; }
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        header .left .menu.js-menu-active {
+          background: url("../images/close@2x.png") no-repeat center center; } }
   header .right .social-mobile-menu {
     display: inline-block;
     height: 24px;
@@ -202,13 +212,13 @@ nav {
   height: 94px;
   max-width: 872px;
   background: #fff;
-  z-index: 999;
+  z-index: 997;
   transition: all .3s; }
   @media only screen and (max-width: 767px) {
     nav {
       position: fixed;
       top: 0;
-      left: -160px;
+      left: -165px;
       width: 160px;
       height: 100vh;
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); } }
@@ -224,7 +234,7 @@ nav {
     justify-content: center;
     width: 100%;
     background: #fff;
-    z-index: 999; }
+    z-index: 998; }
     @media only screen and (max-width: 767px) {
       nav ul {
         flex-direction: column; } }
@@ -247,7 +257,8 @@ nav {
         border-bottom: #E54D42 1px solid; }
       @media only screen and (max-width: 767px) {
         nav ul li.js-active {
-          border-right: #E54D42 1px solid; } }
+          border-right: #E54D42 1px solid;
+          border-bottom: 0; } }
       nav ul li.js-active:after {
         content: "";
         position: absolute;
@@ -278,17 +289,6 @@ nav {
         @media only screen and (max-width: 767px) {
           nav ul li span {
             top: .5em; } }
-  nav .close {
-    margin: 6px;
-    display: block;
-    width: 24px;
-    height: 24px;
-    background: url("../images/close.png") no-repeat;
-    background-size: contain !important;
-    z-index: 999; }
-    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-      nav .close {
-        background: url("../images/close@2x.png") no-repeat center center; } }
 
 article.block {
   position: relative;
@@ -391,6 +391,7 @@ article.block {
     line-height: 1.125em; }
 
 .row {
+  width: 100%;
   flex-direction: row !important; }
 
 .column {
@@ -492,9 +493,12 @@ article.block {
   align-items: flex-end;
   justify-content: center;
   min-height: 25vh; }
-@media only screen and (max-width: 767px) {
-  .page5 .row {
-    flex-direction: column !important; } }
+.page5 .row {
+  width: 100%; }
+  @media only screen and (max-width: 767px) {
+    .page5 .row {
+      flex-direction: column !important;
+      flex-wrap: nowrap !important; } }
 .page5 .one {
   background: url("../images/p5img.png") no-repeat center;
   background-size: 140px 140px !important; }
@@ -507,6 +511,9 @@ article.block {
       background-position: center top; } }
 .page5 .two {
   flex-wrap: wrap; }
+  @media only screen and (max-width: 767px) {
+    .page5 .two {
+      min-height: 150vh !important; } }
   .page5 .two h4 {
     position: relative;
     margin: 19px auto;
@@ -554,10 +561,15 @@ article.block {
     .page6 .one {
       min-height: 25vh !important;
       background-position: center top; } }
+@media only screen and (max-width: 767px) {
+  .page6 .two {
+    padding-bottom: 24px;
+    min-height: 100vh !important; } }
 .page6 .help {
   margin-bottom: 64px; }
 .page6 .content {
-  margin-left: 16px; }
+  margin-left: 16px;
+  min-height: 5em; }
 
 .page7 {
   max-width: none !important;
@@ -677,6 +689,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 48px;
   text-align: center; }
   footer a {
     display: inline-block;

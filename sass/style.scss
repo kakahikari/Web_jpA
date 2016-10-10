@@ -10,8 +10,10 @@ $hdpc: 1200px;
 $default: #404040;
 
 body {
+  position: relative;
   font-size: 16px;
   color: $default;
+  z-index: 1;
 }
 * {
   @include box-sizing(border-box);
@@ -26,6 +28,9 @@ a {
   @include breakpoint($pad, flase) {
     top: -40px;
   }
+}
+.js-fix-fixed{
+   position: absolute !important;
 }
 .only-phone {
   @include breakpoint($pad) {
@@ -48,7 +53,7 @@ header {
   line-height: .875em;
   letter-spacing: .1em;
   background: #fff;
-  z-index: 998;
+  z-index: 996;
   @include breakpoint($pad, false) {
     position: fixed;
     top: 0;
@@ -74,6 +79,12 @@ header {
       background: url("../images/menu.png") no-repeat center center;
       @include retina {
         background: url("../images/menu@2x.png") no-repeat center center;
+      }
+      &.js-menu-active {
+        background: url("../images/close.png") no-repeat;
+        @include retina {
+          background: url("../images/close@2x.png") no-repeat center center;
+        }
       }
     }
   }
@@ -157,12 +168,12 @@ nav {
   height: 94px;
   max-width: 872px;
   background: #fff;
-  z-index: 999;
+  z-index: 997;
   transition: all .3s;
   @include breakpoint($pad, false) {
     position: fixed;
     top: 0;
-    left: -160px;
+    left: -165px;
     width: 160px;
     height: 100vh;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -184,7 +195,7 @@ nav {
     justify-content: center;
     width: 100%;
     background: #fff;
-    z-index: 999;
+    z-index: 998;
     @include breakpoint($pad, false) {
       flex-direction: column;
     }
@@ -209,6 +220,7 @@ nav {
       &.js-active {
         @include breakpoint($pad, false) {
           border-right: #E54D42 1px solid;
+          border-bottom: 0;
         }
         &:after {
           content: "";
@@ -244,18 +256,6 @@ nav {
         }
       }
     }
-  }
-  .close {
-    margin: 6px;
-    display: block;
-    width: 24px;
-    height: 24px;
-    background: url("../images/close.png") no-repeat;
-    background-size: contain !important;
-    @include retina {
-      background: url("../images/close@2x.png") no-repeat center center;
-    }
-    z-index: 999;
   }
 }
 article.block {
@@ -375,6 +375,7 @@ article.block {
   }
 }
 .row {
+  width: 100%;
   flex-direction: row !important;
 }
 .column {
@@ -502,8 +503,10 @@ article.block {
     min-height: 25vh;
   }
   .row {
+    width: 100%;
     @include breakpoint($pad, false) {
       flex-direction: column !important;
+      flex-wrap: nowrap !important;
     }
   }
   .one {
@@ -519,6 +522,9 @@ article.block {
   }
   .two {
     flex-wrap: wrap;
+    @include breakpoint($pad, false) {
+      min-height: 150vh !important;
+    }
     h4 {
       position: relative;
       margin: 19px auto;
@@ -576,11 +582,18 @@ article.block {
       background-position: center top;
     }
   }
+  .two {
+    @include breakpoint($pad, false) {
+      padding-bottom: 24px;
+      min-height: 100vh !important;
+    }
+  }
   .help {
     margin-bottom: 64px;
   }
   .content {
     margin-left: 16px;
+    min-height: 5em;
   }
 }
 .page7 {
@@ -737,6 +750,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 48px;
   text-align: center;
   a {
     display: inline-block;
