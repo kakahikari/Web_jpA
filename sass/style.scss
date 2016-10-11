@@ -538,7 +538,9 @@ article.block {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    min-height: 25vh;
+    @include breakpoint($pad, false) {
+      min-height: 25vh;
+    }
   }
   .row {
     width: 100%;
@@ -597,8 +599,10 @@ article.block {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    min-height: 25vh;
     text-align: center;
+    @include breakpoint($pad, false) {
+      min-height: 25vh;
+    }
   }
   h4 {
     margin: 9px 0;
