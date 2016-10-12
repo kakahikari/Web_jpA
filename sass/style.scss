@@ -11,6 +11,7 @@ $default: #404040;
 
 body {
   position: relative;
+  font-family: $fonts;
   font-size: 16px;
   color: $default;
   z-index: 1;
