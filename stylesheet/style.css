@@ -615,6 +615,8 @@ article.block {
         font-size: 1.5em; }
       .page7 .tabs li:hover, .page7 .tabs li.js-active {
         background: #E54260; }
+      .page7 .tabs li a {
+        color: #fff; }
   .page7 .tabs-content {
     background: #E54260;
     color: #fff;
