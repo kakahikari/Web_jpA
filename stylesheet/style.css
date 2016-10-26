@@ -99,12 +99,13 @@ header {
       padding: 6px;
       border-bottom: #EFEFF4 1px solid;
       line-height: normal; } }
-  header .left span {
+  header .left p {
     display: inline-block;
-    color: #ABB4BD;
-    font-size: .75em; }
-    header .left span.js-disable {
+    color: #ABB4BD; }
+    header .left p.js-disable {
       display: none; }
+    header .left p span {
+      font-size: .75em; }
   header .left .menu {
     display: inline-block;
     width: 24px;
@@ -622,6 +623,8 @@ article.block {
     color: #fff;
     letter-spacing: .1em;
     line-height: 1.375em; }
+    .page7 .tabs-content a {
+      color: #fff; }
     .page7 .tabs-content .item {
       margin: 0 auto;
       display: none;

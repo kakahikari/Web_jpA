@@ -63,12 +63,14 @@ header {
     line-height: normal;
   }
   .left {
-    span {
+    p {
       display: inline-block;
       color: #ABB4BD;
-      font-size: .75em;
       &.js-disable {
         display: none;
+      }
+      span {
+        font-size: .75em;
       }
     }
     .menu {
@@ -688,6 +690,9 @@ article.block {
     color: #fff;
     letter-spacing: .1em;
     line-height: 1.375em;
+    a {
+      color: #fff;
+    }
     .item {
       margin: 0 auto;
       display: none;
